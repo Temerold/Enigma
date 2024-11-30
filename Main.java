@@ -36,12 +36,12 @@ public class Main {
     public static void main(String[] args) {
         Map<Character, Character> plugboard = createPlugboard();
         System.out.println("Ange meddelande att kryptera:");
-        Scanner Scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String inputMessage = "";
         try {
-            inputMessage = Scanner.nextLine().toUpperCase();
+            inputMessage = scanner.nextLine().toUpperCase();
         } finally {
-            Scanner.close();
+            scanner.close();
         }
 
         String outputMessage = plugboardEncrypt(inputMessage, plugboard);
