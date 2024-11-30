@@ -17,36 +17,35 @@ public class Main {
             char value = entry.getValue();
             plugboard.put(value, key);
         }
-        System.out.println(plugboard);
+
         return plugboard;
     }
 
-    public static String plugboardEncrypt(String input, Map<Character, Character> plugboard) {
+    public static String plugboardEncrypt(String message, Map<Character, Character> plugboard) {
         StringBuilder encryptedMessage = new StringBuilder();
 
-        for (int i = 0; i < input.length(); i++) {
-            char originalCharacter = input.charAt(i);
+        for (int i = 0; i < message.length(); i++) {
+            char originalCharacter = message.charAt(i);
             char newCharacter = plugboard.getOrDefault(originalCharacter, originalCharacter);
             encryptedMessage.append(newCharacter);
         }
 
-        String output = encryptedMessage.toString();
-        return output;
+        return encryptedMessage.toString();
     }
 
     public static void main(String[] args) {
         Map<Character, Character> plugboard = createPlugboard();
         System.out.println("Ange meddelande att kryptera:");
-        Scanner inputMessageScanner = new Scanner(System.in);
+        Scanner Scanner = new Scanner(System.in);
         String inputMessage = "";
         try {
-            inputMessage = inputMessageScanner.nextLine().toUpperCase();
+            inputMessage = Scanner.nextLine().toUpperCase();
         } finally {
-            inputMessageScanner.close();
+            Scanner.close();
         }
 
         String outputMessage = plugboardEncrypt(inputMessage, plugboard);
-        System.out.println("Input: " + inputMessage);
-        System.out.println("Output: " + outputMessage);
+        System.out.println("Okrypterat meddelande: " + inputMessage);
+        System.out.println("Krypterat meddelande: " + outputMessage);
     }
 }
