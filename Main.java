@@ -37,15 +37,16 @@ public class Main {
         Map<Character, Character> plugboard = createPlugboard();
         System.out.println("Ange meddelande att kryptera:");
         Scanner scanner = new Scanner(System.in);
-        String inputMessage = "";
+        String input = "";
         try {
-            inputMessage = scanner.nextLine().toUpperCase();
+            input = scanner.nextLine().toUpperCase();
         } finally {
             scanner.close();
         }
 
-        String outputMessage = plugboardEncrypt(inputMessage, plugboard);
-        System.out.println("Okrypterat meddelande: " + inputMessage);
-        System.out.println("Krypterat meddelande: " + outputMessage);
+        String plugboardEncryptedMessage = plugboardEncrypt(input, plugboard);
+        String output = plugboardEncryptedMessage;
+        System.out.println("Okrypterat meddelande: " + input);
+        System.out.println("Krypterat meddelande: " + output);
     }
 }
